@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-25 00:50:06
+ * @LastEditTime: 2022-01-25 01:11:23
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * https://github.com/Yulv-git/Model_Inference_Deployment
@@ -17,7 +17,7 @@
 | Platform | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
-| [TensorRT](#tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, Theano, PyTorch, MXNet, PaddlePaddle, MATLAB, etc. | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
+| [TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, PyTorch, MXNet, PaddlePaddle, MATLAB, ONNX | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
 | [MediaPipe](#mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian | Youtube, Google Lens, ARCore, Google Home, etc. |  |
 | [TensorFlow Lite](#tensorflow-lite) | Google | C++, Java, Python, Swift, Objective-C | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, etc. | Linux, iOS, Android, Raspberry Pi |  |  |
 | [TensorFlow Serving](#tensorflow-serving) | Google | gRPC | TensorFlow |  | GPU, TPU |  |  |  |  |
@@ -83,15 +83,13 @@ Eg:
 
 OpenVINO (Open Visual Inference & Neural Network Optimization) is an open-source toolkit for optimizing and deploying AI inference. It reduce resource demands and efficiently deploy on a range of Intel platforms from edge to cloud.
 
-[Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo): Pre-trained Deep Learning models and demos (high quality and extremely fast).
+[Open Model Zoo repository](https://github.com/openvinotoolkit/open_model_zoo): Pre-trained Deep Learning models and demos (high quality and extremely fast).
 
 ## 2.2. TensorRT
 
-[NVIDIA TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) is an SDK that facilitates high performance machine learning inference.
+[Official Website](https://developer.nvidia.com/zh-cn/tensorrt) | [GitHub](https://github.com/NVIDIA/TensorRT)
 
-The [NVIDIA TensorRT Developer Guide](https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html) demonstrates how to use the C++ and Python APIs for implementing the most common deep learning layers. It shows how you can take an existing model built with a deep learning framework and build a TensorRT engine using the provided parsers.
-
-The [TensorRT Open Source Software](https://github.com/NVIDIA/TensorRT) contains the Open Source Software components of NVIDIA TensorRT.
+NVIDIA TensorRT is an SDK for high-performance deep learning inference. This SDK contains a deep learning inference optimizer and runtime environment that provides low latency and high throughput for deep learning inference applications.
 
 ## 2.3. MediaPipe
 
