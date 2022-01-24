@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-24 22:30:03
+ * @LastEditTime: 2022-01-25 00:50:06
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * https://github.com/Yulv-git/Model_Inference_Deployment
@@ -14,25 +14,25 @@
 
     Inference deployment of artificial intelligence models.
 
-|                                           | Developer                | Language API                                                          | Framework                                                                            | Precision Optimize | CPU/GPU/FGPA/VPU/TPU/NPU/DSP/XPU/APU | Hardware                                                                                    | OS                                                                  | Application                                     | Other Features |
-| ----------------------------------------- | ------------------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------ | ---------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------- | -------------- |
-| [OpenVINO](#openvino)                     | Intel                    | C, C++, Python                                                        | Tensorflow, Caffe, MxNet, Keras, PyTorch, etc.                                       | INT8               | CPU, GPU, FGPA, VPU          | Intel CPU, Intel Integrated Graphics, Intel Movidius NCS, Intel Movidius VPU, DepthAI, etc. | Linux, Windows, macOS, Raspbian                                     |                                                 |                |
-| [TensorRT](#tensorrt)                     | NVIDIA                   | C++, Python                                                           | TensorFlow, Caffe, CNTK, Chainer, Theano, PyTorch, Mxnet, PaddlePaddle, MATLAB, etc. | INT8, FP16         | GPU                          | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc.                                                  | Linux, Windows                                                      |                                                 |                |
-| [MediaPipe](#mediapipe)                   | Google                   | C++, JavaScript, Python                                               | TensorFlow                                                                           |                    | GPU, TPU                     | Google Coral, etc.                                                                          | Linux, Android, iOS, Raspbian                                       | Youtube, Google Lens, ARCore, Google Home, etc. |                |
-| [TensorFlow Lite](#tensorflow-lite)       | Google                   | C++, Java, Python, Swift, Objective-C                                 | TensorFlow                                                                           | INT8, FP16         | CPU, GPU, TPU, NPU, DSP      | Google Coral, etc.                                                                          | Linux, iOS, Android, Raspberry Pi                                   |                                                 |                |
-| [TensorFlow Serving](#tensorflow-serving) | Google                   | gRPC                                                                  | TensorFlow                                                                           |                    | GPU, TPU                     |                                                                                             |                                                                     |                                                 |                |
-| [ONNX Runtime](#onnx-runtime)             | Microsoft                | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, scikit-learn, LightGBM, XGBoost                          |                    | CPU, GPU                     |                                                                                             | Linux, Windows, macOS, iOS, Android, WebAssembly                    | Office 365, Bing, Visual Studio, etc.           |                |
-| [Libtorch](#libtorch)                     | FaceBook                 | C++                                                                   | PyTorch                                                                              |                    | CPU, GPU                     |                                                                                             | Linux, Windows, macOS                                               |                                                 |                |
-| [NCNN](#ncnn)                             | Tencent                  |                                                           | TensorFlow, Caffe, MxNet, Keras, PyTorch                                             |      INT8, FP16                | CPU, GPU                     |                                                                                             | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc.                   |                |
-| [TNN](#tnn)                               | Tencent                  |                                                            | TensorFlow, Caffe, MxNet, PyTorch                                                    | INT8, FP16                    | CPU, GPU, NPU                |                                                                                             | Linux, Android, iOS                                                 | QQ, weishi, Pitu, etc.                          |                |
-| [MNN](#mnn)                               | Alibaba                  |                                                                       | TensorFlow, Caffe                                                                    |                    | CPU, GPU, NPU                |                                                                                             |                                                                     | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc.    |                |
-| [TVM](#tvm)                               | University of Washington |               |         TensorFlow, Keras, MxNet, PyTorch                        |             | CPU, GPU                  |                          |                      |                      |                |
-| [MACE](#mace)                             |   Xiaomi                       |                                                                       |                                                                                      |                    |                              |                                                                                             |                                                              Android, iOS, Linux, Windows       |                                                 |                |
-| [Paddle Lite](#paddle-lite)               |     Baidu                     |    C++, Java, Python                                                                   |              PaddlePaddle                                                                        |                    |                  CPU, GPU, NPU, FPGA, XPU, APU            |                                                                                             |                                            Android, iOS, Linux, Windows, macOS                                 |                |
-| [MegEngine](#megengine)                   |       Megvii                   |     Python                                                                  |                                                                                      |                    |              CPU, GPU, FPGA                |                                                                                             |                                                                     |                                                 |                |
-| [OpenPPL](#openppl)                       |   SenseTime                       |                                                                       |                                                                                      |                    |                              |                                                                                             |                                                                     |                                                 |                |
-| [AIStation](#aistation)                   |   Inspur                       |                                                                       |                                                                                      |                    |                              |                                                                                             |                                                                     |                                                 |                |
-| [Bolt](#bolt)                             | Huawei                         |                                                                       |                                                                                      |                    |                              |                                                                                             |                                                                     |                                                 |                |
+| Platform | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
+| [TensorRT](#tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, Theano, PyTorch, MXNet, PaddlePaddle, MATLAB, etc. | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
+| [MediaPipe](#mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian | Youtube, Google Lens, ARCore, Google Home, etc. |  |
+| [TensorFlow Lite](#tensorflow-lite) | Google | C++, Java, Python, Swift, Objective-C | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, etc. | Linux, iOS, Android, Raspberry Pi |  |  |
+| [TensorFlow Serving](#tensorflow-serving) | Google | gRPC | TensorFlow |  | GPU, TPU |  |  |  |  |
+| [ONNX Runtime](#onnx-runtime) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost |  | CPU, GPU |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
+| [Libtorch](#libtorch) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
+| [NCNN](#ncnn) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
+| [TNN](#tnn) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS | QQ, weishi, Pitu, etc. |  |
+| [MNN](#mnn) | Alibaba |  | TensorFlow, Caffe |  | CPU, GPU, NPU |  | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. |  |
+| [TVM](#tvm) | University of Washington |  | TensorFlow, Keras, MXNet, PyTorch |  | CPU, GPU |  |  |  |  |
+| [MACE](#mace) | Xiaomi |  |  |  |  |  | Android, iOS, Linux, Windows |  |  |
+| [Paddle Lite](#paddle-lite) | Baidu | C++, Java, Python |  PaddlePaddle |  | CPU, GPU, NPU, FPGA, XPU, APU |  | Android, iOS, Linux, Windows, macOS |  |
+| [MegEngine](#megengine) | Megvii |  Python |  |  | CPU, GPU, FPGA |  |  |  |  |
+| [OpenPPL](#openppl) | SenseTime |  |  |  |  |  |  |  |  |
+| [AIStation](#aistation) | Inspur |  |  |  |  |  |  |  |  |
+| [Bolt](#bolt) | Huawei |  |  |  |  |  |  |  |  |
 
 ---
 
@@ -62,25 +62,28 @@
 
 # 1. ONNX
 
-[ONNX](https://onnx.ai) (Open Neural Network Exchange) is an open format built to represent machine learning models.
-ONNX defines a common set of operators - the building blocks of machine learning and deep learning models - and a common file format to enable AI developers to use models with a variety of frameworks, tools, runtimes, and compilers.
+[Official Website](https://onnx.ai) | [GitHub](https://github.com/onnx)
 
-[ONNX: (Open standard for machine learning interoperability)](https://github.com/onnx/onnx) developed by Microsoft, Amazon, FaceBook, IBM, etc.
+ONNX (Open Neural Network Exchange) is an open format built to represent machine learning models. ONNX defines a common set of operators - the building blocks of machine learning and deep learning models - and a common file format to enable AI developers to use models with a variety of frameworks, tools, runtimes, and compilers.
 
-eg:
+ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, MATLAB, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, XGBoost, OpenVINO, ONNX RUNTIME, MACE, TVM, ONNX MLIR, TensorRT, NCNN, etc.
+
+Eg:
 
 * PyTorch --> ONNX --> TensorRT
 * PyTorch --> ONNX --> TVM
-* Tensorflow --> ONNX --> NCNN
-* PyTorch --> ONNX --> Tensorflow
+* TensorFlow --> ONNX --> NCNN
+* PyTorch --> ONNX --> TensorFlow
 
 # 2. Platform
 
 ## 2.1. OpenVINO
 
-[OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) (Open Visual Inference & Neural Network Optimization) is an open-source [toolkit](https://github.com/openvinotoolkit/openvino) for optimizing and deploying AI inference.
+[Official Website](https://docs.openvino.ai/latest/index.html) | [GitHub](https://github.com/openvinotoolkit/openvino)
 
-[OpenVINO Toolkit - Open Model Zoo repository](https://github.com/openvinotoolkit/open_model_zoo): Pre-trained Deep Learning models and demos (high quality and extremely fast).
+OpenVINO (Open Visual Inference & Neural Network Optimization) is an open-source toolkit for optimizing and deploying AI inference. It reduce resource demands and efficiently deploy on a range of Intel platforms from edge to cloud.
+
+[Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo): Pre-trained Deep Learning models and demos (high quality and extremely fast).
 
 ## 2.2. TensorRT
 
