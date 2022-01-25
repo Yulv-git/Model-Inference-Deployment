@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-25 01:11:23
+ * @LastEditTime: 2022-01-25 12:42:18
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * https://github.com/Yulv-git/Model_Inference_Deployment
@@ -14,18 +14,18 @@
 
     Inference deployment of artificial intelligence models.
 
-| Platform | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
+| Tool | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
 | [TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, PyTorch, MXNet, PaddlePaddle, MATLAB, ONNX | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
-| [MediaPipe](#mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian | Youtube, Google Lens, ARCore, Google Home, etc. |  |
-| [TensorFlow Lite](#tensorflow-lite) | Google | C++, Java, Python, Swift, Objective-C | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, etc. | Linux, iOS, Android, Raspberry Pi |  |  |
-| [TensorFlow Serving](#tensorflow-serving) | Google | gRPC | TensorFlow |  | GPU, TPU |  |  |  |  |
-| [ONNX Runtime](#onnx-runtime) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost |  | CPU, GPU |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
-| [Libtorch](#libtorch) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
-| [NCNN](#ncnn) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
-| [TNN](#tnn) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS | QQ, weishi, Pitu, etc. |  |
-| [MNN](#mnn) | Alibaba |  | TensorFlow, Caffe |  | CPU, GPU, NPU |  | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. |  |
+| [MediaPipe](https://google.github.io/mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian, macOS, Windows (experimental) | Youtube, Google Lens, ARCore, Google Home, etc. |  |
+| [TensorFlow Lite](https://www.tensorflow.org/lite) | Google | C++, Java, Python, Swift, Objective-C (coming soon) | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, Microcontrollers, etc. | Linux, iOS, Android, Raspberry Pi | Google Search, Gmail, Google Translate, WPS Office, VSCO, etc. |  |
+| [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
+| [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost | INT8, FP16 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
+| [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
+| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
+| [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu, etc. |  |
+| [MNN]() | Alibaba |  | TensorFlow, Caffe |  | CPU, GPU, NPU |  | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. |  |
 | [TVM](#tvm) | University of Washington |  | TensorFlow, Keras, MXNet, PyTorch |  | CPU, GPU |  |  |  |  |
 | [MACE](#mace) | Xiaomi |  |  |  |  |  | Android, iOS, Linux, Windows |  |  |
 | [Paddle Lite](#paddle-lite) | Baidu | C++, Java, Python |  PaddlePaddle |  | CPU, GPU, NPU, FPGA, XPU, APU |  | Android, iOS, Linux, Windows, macOS |  |
@@ -39,14 +39,14 @@
 <font size=4><b><center> Table of Contents </center></b></font>
 
 - [1. ONNX](#1-onnx)
-- [2. Platform](#2-platform)
+- [2. Tool](#2-tool)
   - [2.1. OpenVINO](#21-openvino)
   - [2.2. TensorRT](#22-tensorrt)
   - [2.3. MediaPipe](#23-mediapipe)
   - [2.4. TensorFlow Lite](#24-tensorflow-lite)
   - [2.5. TensorFlow Serving](#25-tensorflow-serving)
   - [2.6. ONNX Runtime](#26-onnx-runtime)
-  - [2.7. Libtorch](#27-libtorch)
+  - [2.7. LibTorch](#27-libtorch)
   - [2.8. NCNN](#28-ncnn)
   - [2.9. TNN](#29-tnn)
   - [2.10. MNN](#210-mnn)
@@ -75,7 +75,7 @@ Eg:
 * TensorFlow --> ONNX --> NCNN
 * PyTorch --> ONNX --> TensorFlow
 
-# 2. Platform
+# 2. Tool
 
 ## 2.1. OpenVINO
 
@@ -93,39 +93,51 @@ NVIDIA TensorRT is an SDK for high-performance deep learning inference. This SDK
 
 ## 2.3. MediaPipe
 
-[MediaPipe](https://google.github.io/mediapipe) offers [cross-platform, customizable ML solutions for live and streaming media](https://github.com/google/mediapipe).
+[Official Website](https://google.github.io/mediapipe) | [GitHub](https://github.com/google/mediapipe)
+
+MediaPipe offers cross-platform, customizable ML solutions for live and streaming media.
 
 ## 2.4. TensorFlow Lite
 
-[TensorFlow Lite](https://tensorflow.google.cn/lite) is an open source deep learning framework for on-device inference.
+[Official Website](https://www.tensorflow.org/lite) | [GitHub](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite)
 
-[TensorFlow Lite for Microcontrollers](https://github.com/tensorflow/tflite-micro) is a port of TensorFlow Lite designed to run machine learning models on DSPs, microcontrollers and other devices with limited memory.
+TensorFlow Lite is TensorFlow's lightweight solution for mobile and embedded devices. It enables low-latency inference of on-device machine learning models with a small binary size and fast performance supporting hardware acceleration.
 
-[An awesome list of TensorFlow Lite models, samples, tutorials, tools and learning resources](https://github.com/margaretmz/awesome-tensorflow-lite)
+[TensorFlow Lite for Microcontrollers](https://github.com/tensorflow/tflite-micro): A port of TensorFlow Lite designed to run machine learning models on DSPs, microcontrollers and other devices with limited memory.
+
+[Awesome TensorFlow Lite](https://github.com/margaretmz/awesome-tensorflow-lite): An awesome list of TensorFlow Lite models with sample apps, helpful tools and learning resources.
 
 ## 2.5. TensorFlow Serving
 
-[TensorFlow Serving](https://github.com/tensorflow/serving): A flexible, high-performance serving system for machine learning models.
+[Official Website](https://www.tensorflow.org/tfx/guide/serving) | [GitHub](https://github.com/tensorflow/serving)
+
+TensorFlow Serving is a flexible, high-performance serving system for machine learning models, designed for production environments. TensorFlow Serving makes it easy to deploy new algorithms and experiments, while keeping the same server architecture and APIs. TensorFlow Serving provides out-of-the-box integration with TensorFlow models, but can be easily extended to serve other types of models and data.
 
 ## 2.6. ONNX Runtime
 
-[ONNX Runtime](https://onnxruntime.ai/about.html) is an open source project that is designed to accelerate machine learning across a wide range of frameworks, operating systems, and hardware platforms. It enables acceleration of machine learning inferencing across all of your deployment targets using a single set of API.
+[Official Website](https://onnxruntime.ai/about.html) | [GitHub](https://github.com/microsoft/onnxruntime)
 
-[ONNX Runtime](https://github.com/microsoft/onnxruntime): cross-platform, high performance ML inferencing and training accelerator.
+ONNX Runtime is an open source project that is designed to accelerate machine learning across a wide range of frameworks, operating systems, and hardware platforms. It enables acceleration of machine learning inferencing across all of your deployment targets using a single set of API. ONNX Runtime automatically parses through your model to identify optimization opportunities and provides access to the best hardware acceleration available.
 
-## 2.7. Libtorch
+ONNX Runtime also offers training acceleration, which incorporates innovations from Microsoft Research and is proven across production workloads like Office 365, Bing and Visual Studio.
 
-Libtorch (PyTorch C++ API)
+## 2.7. LibTorch
 
-[Libtorch教程](https://allentdan.github.io/2021/01/16/libtorch%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89)
+[Official Website](https://pytorch.org/cppdocs/installing.html) | [LibTorch Tutorials](https://github.com/AllentDan/LibtorchTutorials)
+
+LibTorch: C++ distributions of PyTorch.
 
 ## 2.8. NCNN
 
-[NCNN](https://github.com/Tencent/ncnn) is a high-performance neural network inference framework optimized for the mobile platform.
+[Official Website](https://ncnn.docsforge.com) | [GitHub](https://github.com/Tencent/ncnn)
+
+NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. it is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, Qzone, WeChat, Pitu and so on.
 
 ## 2.9. TNN
 
-[TNN](https://github.com/Tencent/TNN) developed by Tencent Youtu Lab and Guangying Lab, a uniform deep learning inference framework for mobile、desktop and server. TNN is distinguished by several outstanding features, including its cross-platform capability, high performance, model compression and code pruning. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and ncnn frameworks.
+[GitHub](https://github.com/Tencent/TNN)
+
+TNN: A high-performance, lightweight neural network inference framework open sourced by Tencent Youtu Lab. It also has many outstanding advantages such as cross-platform, high performance, model compression, and code tailoring. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and ncnn frameworks. At the same time, it refers to the high performance and good scalability characteristics of the industry's mainstream open source frameworks, and expands the support for X86 and NV GPUs. On the mobile phone, TNN has been used by many applications such as mobile QQ, weishi, and Pitu. As a basic acceleration framework for Tencent Cloud AI, TNN has provided acceleration support for the implementation of many businesses. Everyone is welcome to participate in the collaborative construction to promote the further improvement of the TNN reasoning framework.
 
 ## 2.10. MNN
 
