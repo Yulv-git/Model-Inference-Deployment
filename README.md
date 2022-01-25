@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-25 12:42:18
+ * @LastEditTime: 2022-01-25 17:18:32
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * https://github.com/Yulv-git/Model_Inference_Deployment
@@ -21,18 +21,17 @@
 | [MediaPipe](https://google.github.io/mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian, macOS, Windows (experimental) | Youtube, Google Lens, ARCore, Google Home, etc. |  |
 | [TensorFlow Lite](https://www.tensorflow.org/lite) | Google | C++, Java, Python, Swift, Objective-C (coming soon) | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, Microcontrollers, etc. | Linux, iOS, Android, Raspberry Pi | Google Search, Gmail, Google Translate, WPS Office, VSCO, etc. |  |
 | [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
-| [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost | INT8, FP16 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
+| [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
 | [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
-| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
-| [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu, etc. |  |
-| [MNN]() | Alibaba |  | TensorFlow, Caffe |  | CPU, GPU, NPU |  | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. |  |
-| [TVM](#tvm) | University of Washington |  | TensorFlow, Keras, MXNet, PyTorch |  | CPU, GPU |  |  |  |  |
-| [MACE](#mace) | Xiaomi |  |  |  |  |  | Android, iOS, Linux, Windows |  |  |
-| [Paddle Lite](#paddle-lite) | Baidu | C++, Java, Python |  PaddlePaddle |  | CPU, GPU, NPU, FPGA, XPU, APU |  | Android, iOS, Linux, Windows, macOS |  |
-| [MegEngine](#megengine) | Megvii |  Python |  |  | CPU, GPU, FPGA |  |  |  |  |
-| [OpenPPL](#openppl) | SenseTime |  |  |  |  |  |  |  |  |
-| [AIStation](#aistation) | Inspur |  |  |  |  |  |  |  |  |
-| [Bolt](#bolt) | Huawei |  |  |  |  |  |  |  |  |
+| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
+| [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu, etc. |  |
+| [MNN](https://www.mnn.zone/index.html) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
+| [TVM](https://tvm.apache.org) | University of Washington | Python, Java, C++, TypeScript | TensorFlow, Keras, MXNet, PyTorch, CoreML, DarkNet, ONNX |  | CPU, GPU, NPU, DSP, FPGA | Microcontrollers, Browsers, etc. |  |  |  |
+| [MACE](https://mace.readthedocs.io/en/latest/introduction.html) | Xiaomi |  | TensorFlow, Caffe, ONNX |  | CPU, GPU, DSP |  | Android, iOS, Linux, Windows |  |  |
+| [Paddle Lite](https://paddle-lite.readthedocs.io/zh/develop/guide/introduction.html) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://paddle-lite.readthedocs.io/zh/develop/quick_start/support_hardware.html#), etc. | Android, iOS, Linux, Windows, macOS |  |  |
+| [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii |  Python, C, C++ | MegEngine | INT8  | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
+| [OpenPPL](https://openppl.ai/home) | SenseTime | C++, Python, Lua | ONNX | FP16 | CPU, GPU |  | Linux, RISC-V |  |  |
+| [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
 
 ---
 
@@ -53,10 +52,9 @@
   - [2.11. TVM](#211-tvm)
   - [2.12. MACE](#212-mace)
   - [2.13. Paddle Lite](#213-paddle-lite)
-  - [2.14. MegEngine](#214-megengine)
+  - [2.14. MegEngine Lite](#214-megengine-lite)
   - [2.15. OpenPPL](#215-openppl)
-  - [2.16. AIStation](#216-aistation)
-  - [2.17. Bolt](#217-bolt)
+  - [2.16. Bolt](#216-bolt)
 
 ---
 
@@ -66,7 +64,7 @@
 
 ONNX (Open Neural Network Exchange) is an open format built to represent machine learning models. ONNX defines a common set of operators - the building blocks of machine learning and deep learning models - and a common file format to enable AI developers to use models with a variety of frameworks, tools, runtimes, and compilers.
 
-ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, MATLAB, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, XGBoost, OpenVINO, ONNX RUNTIME, MACE, TVM, ONNX MLIR, TensorRT, NCNN, etc.
+ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, MATLAB, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, CoreML, XGBoost, MindSpore, OpenVINO, ONNX RUNTIME, MACE, TVM, ONNX MLIR, TensorRT, NCNN, etc.
 
 Eg:
 
@@ -137,49 +135,49 @@ NCNN is a high-performance neural network inference computing framework optimize
 
 [GitHub](https://github.com/Tencent/TNN)
 
-TNN: A high-performance, lightweight neural network inference framework open sourced by Tencent Youtu Lab. It also has many outstanding advantages such as cross-platform, high performance, model compression, and code tailoring. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and ncnn frameworks. At the same time, it refers to the high performance and good scalability characteristics of the industry's mainstream open source frameworks, and expands the support for X86 and NV GPUs. On the mobile phone, TNN has been used by many applications such as mobile QQ, weishi, and Pitu. As a basic acceleration framework for Tencent Cloud AI, TNN has provided acceleration support for the implementation of many businesses. Everyone is welcome to participate in the collaborative construction to promote the further improvement of the TNN reasoning framework.
+TNN: A high-performance, lightweight neural network inference framework open sourced by Tencent Youtu Lab. It also has many outstanding advantages such as cross-platform, high performance, model compression, and code tailoring. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and ncnn frameworks. At the same time, it refers to the high performance and good scalability characteristics of the industry's mainstream open source frameworks, and expands the support for X86 and NV GPUs. On the mobile phone, TNN has been used by many applications such as mobile QQ, weishi, and Pitu. As a basic acceleration framework for Tencent Cloud AI, TNN has provided acceleration support for the implementation of many businesses. Everyone is welcome to participate in the collaborative construction to promote the further improvement of the TNN inference framework.
 
 ## 2.10. MNN
 
-[MNN](https://www.mnn.zone/index.html)轻量级高性能推理引擎
+[Official Website](https://www.mnn.zone/index.html) | [GitHub](https://github.com/alibaba/MNN)
 
-[MNN](https://github.com/alibaba/MNN) is a highly efficient and lightweight deep learning framework. It supports inference and training of deep learning models, and has industry leading performance for inference and training on-device. At present, MNN has been integrated in more than 20 apps of Alibaba Inc, such as Taobao, Tmall, Youku, Dingtalk, Xianyu and etc., covering more than 70 usage scenarios such as live broadcast, short video capture, search recommendation, product searching by image, interactive marketing, equity distribution, security risk control. In addition, MNN is also used on embedded devices, such as IoT.
+MNN is a highly efficient and lightweight deep learning framework. It supports inference and training of deep learning models, and has industry leading performance for inference and training on-device. At present, MNN has been integrated in more than 20 apps of Alibaba Inc, such as Taobao, Tmall, Youku, Dingtalk, Xianyu and etc., covering more than 70 usage scenarios such as live broadcast, short video capture, search recommendation, product searching by image, interactive marketing, equity distribution, security risk control. In addition, MNN is also used on embedded devices, such as IoT.
 
 ## 2.11. TVM
 
-[TVM](https://tvm.apache.org) is an open source machine learning compiler framework for CPUs, GPUs, and machine learning accelerators. It aims to enable machine learning engineers to optimize and run computations efficiently on any hardware backend.
+[Official Website](https://tvm.apache.org) | [GitHub](https://github.com/apache/tvm)
 
-[TVM](https://github.com/apache/tvm) is a compiler stack for deep learning systems. It is designed to close the gap between the productivity-focused deep learning frameworks, and the performance- and efficiency-focused hardware backends. TVM works with deep learning frameworks to provide end to end compilation to different backends.
+Apache TVM is an open source machine learning compiler framework for CPUs, GPUs, and machine learning accelerators. It aims to enable machine learning engineers to optimize and run computations efficiently on any hardware backend.
 
 ## 2.12. MACE
 
-[MACE](https://github.com/XiaoMi/mace) (Mobile AI Compute Engine) is a deep learning inference framework optimized for mobile heterogeneous computing on Android, iOS, Linux and Windows devices.
+[Official Website](https://mace.readthedocs.io/en/latest/introduction.html) | [GitHub](https://github.com/XiaoMi/mace)
+
+MACE (Mobile AI Compute Engine) is a deep learning inference framework optimized for mobile heterogeneous computing platforms computing on Android, iOS, Linux and Windows devices. MACE provides tools and documents to help users to deploy deep learning models to mobile phones, tablets, personal computers and IoT devices.
 
 ## 2.13. Paddle Lite
 
-[Paddle Lite](https://github.com/PaddlePaddle/Paddle-Lite) is an updated version of Paddle-Mobile, an open-open source deep learning framework designed to make it easy to perform inference on mobile, embeded, and IoT devices. It is compatible with PaddlePaddle and pre-trained models from other sources.
+[Official Website](https://paddle-lite.readthedocs.io/zh/develop/guide/introduction.html) | [GitHub](https://github.com/PaddlePaddle/Paddle-Lite)
 
-## 2.14. MegEngine
+Paddle Lite is an updated version of Paddle-Mobile, an open-open source deep learning framework designed to make it easy to perform inference on mobile, embeded, and IoT devices. It is compatible with PaddlePaddle and pre-trained models from other sources.
 
-[MegEngine 1.7 文档](https://megengine.org.cn/doc/stable/zh/index.html)
+## 2.14. MegEngine Lite
 
-[MegEngine](https://github.com/MegEngine/MegEngine) is a fast, scalable and easy-to-use deep learning framework, with auto-differentiation.
+[Official Website](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | [GitHub](https://github.com/MegEngine/MegEngine/tree/master/lite)
+
+MegEngine Lite is a layer of interface encapsulation for MegEngine. The main purpose of MegEngine Lite is to provide users with a more concise, easy-to-use and efficient inference interface, and to make full use of the multi-platform inference capabilities of MegEngine.
 
 ## 2.15. OpenPPL
 
-[OpenPPL](https://openppl.ai/home) is an open-source inference engine based on self-developed neural network kernel libraries. OpenPPL supports efficient and high-performance AI inferencing on a variety of hardware platforms in cloud-native environments, and provides built-in support for OpenMMLab models.
+[Official Website](https://openppl.ai/home) | [GitHub](https://github.com/openppl-public/ppl.nn)
 
-[OpenPPL](https://github.com/openppl-public/ppl.nn) is a high-performance deep-learning inference engine for efficient AI inferencing. It can run various ONNX models and has better support for OpenMMLab.
+OpenPPL is an open-source deep-learning inference platform based on self-developed high-performance kernel libraries. It enables AI applications to run efficiently on mainstream CPU and GPU platforms, delivering reliable inference services in cloud scenarios.
 
-## 2.16. AIStation
+## 2.16. Bolt
 
-[AIStation](https://www.inspur.com/lcjtww/2526894/2526897/2563322/2563340/index.html)人工智能推理服务平台，主要面向企业AI应用部署及在线服务管理场景，通过统一应用接口、算力弹性伸缩、A/B测试、滚动发布、多模型加权评估等全栈AI能力，为企业提供可靠、易用、灵活的推理服务部署及计算资源管理平台，帮助用户AI业务快速上线，提高AI计算资源的利用效率，实现AI产业的快速落地。
+[Official Website](https://huawei-noah.github.io/bolt) | [GitHub](https://github.com/huawei-noah/bolt)
 
-## 2.17. Bolt
-
-[Bolt](https://huawei-noah.github.io/bolt) is a light-weight library for deep learning. Bolt, as a universal deployment tool for all kinds of neural networks, aims to minimize the inference runtime as much as possible. Bolt has been widely deployed and used in many departments of HUAWEI company, such as 2012 Laboratory, CBG and HUAWEI Product Lines.
-
-[Bolt](https://github.com/huawei-noah/bolt) is a deep learning library with high performance and heterogeneous flexibility.
+Bolt is a light-weight library for deep learning. Bolt, as a universal deployment tool for all kinds of neural networks, aims to minimize the inference runtime as much as possible. Bolt has been widely deployed and used in many departments of HUAWEI company, such as 2012 Laboratory, CBG and HUAWEI Product Lines.
 
 ---
 
