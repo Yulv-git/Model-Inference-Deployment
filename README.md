@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-25 17:18:32
+ * @LastEditTime: 2022-01-25 17:25:18
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * https://github.com/Yulv-git/Model_Inference_Deployment
@@ -183,4 +183,4 @@ Bolt is a light-weight library for deep learning. Bolt, as a universal deploymen
 
 <font size=4><b><big> Contributing </b></big></font>
 
-If you find errors in this repo. or have any suggestions, please feel free to please feel free to pull requests.
+If you find any errors, or have any suggestions, please feel free to please feel free to pull requests.
