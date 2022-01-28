@@ -4,10 +4,10 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-25 17:25:18
+ * @LastEditTime: 2022-01-28 14:23:14
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
- * https://github.com/Yulv-git/Model_Inference_Deployment
+ * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
 -->
 
 <font size=5><b><big><center> Model_Inference_Deployment </center></b></big></font>
@@ -55,6 +55,9 @@
   - [2.14. MegEngine Lite](#214-megengine-lite)
   - [2.15. OpenPPL](#215-openppl)
   - [2.16. Bolt](#216-bolt)
+- [3. Practice](#3-practice)
+  - [3.1. ONNX](#31-onnx)
+    - [3.1.1. Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME](#311-exporting-a-model-from-pytorch-to-onnx-and-running-it-using-onnx-runtime)
 
 ---
 
@@ -64,14 +67,17 @@
 
 ONNX (Open Neural Network Exchange) is an open format built to represent machine learning models. ONNX defines a common set of operators - the building blocks of machine learning and deep learning models - and a common file format to enable AI developers to use models with a variety of frameworks, tools, runtimes, and compilers.
 
-ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, MATLAB, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, CoreML, XGBoost, MindSpore, OpenVINO, ONNX RUNTIME, MACE, TVM, ONNX MLIR, TensorRT, NCNN, etc.
+ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, CoreML, Keras, libSVM, MATLAB, MindSpore, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, XGBoost, OpenVINO, TensorRT, ONNX MLIR, ONNX RUNTIME, MACE, NCNN, TVM, etc.
 
 Eg:
 
+* PyTorch --> ONNX --> ONNX RUNTIME
 * PyTorch --> ONNX --> TensorRT
 * PyTorch --> ONNX --> TVM
 * TensorFlow --> ONNX --> NCNN
 * PyTorch --> ONNX --> TensorFlow
+
+---
 
 # 2. Tool
 
@@ -178,6 +184,75 @@ OpenPPL is an open-source deep-learning inference platform based on self-develop
 [Official Website](https://huawei-noah.github.io/bolt) | [GitHub](https://github.com/huawei-noah/bolt)
 
 Bolt is a light-weight library for deep learning. Bolt, as a universal deployment tool for all kinds of neural networks, aims to minimize the inference runtime as much as possible. Bolt has been widely deployed and used in many departments of HUAWEI company, such as 2012 Laboratory, CBG and HUAWEI Product Lines.
+
+---
+
+# 3. Practice
+
+## 3.1. ONNX
+
+ONNX is widely supported and can be found in many frameworks, tools, and hardware. Enabling interoperability between different frameworks and streamlining the path from research to production helps increase the speed of innovation in the AI community. We invite the community to join us and further evolve ONNX.
+
+### 3.1.1. Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME
+
+The main functions are as follows:
+
+``` python
+def Pytorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
+    ''' Export the model. (PyTorch2ONNX) '''
+    torch.onnx.export(
+        torch_model,                                    # model being run.
+        dummy_input_to_model,                           # model input (or a tuple for multiple inputs).
+        onnx_save_dir,                                  # where to save the model (can be a file or file-like object).
+        export_params=True,                             # store the trained parameter weights inside the model file.
+        opset_version=10,                               # the ONNX version to export the model to.
+        do_constant_folding=True,                       # whether to execute constant folding for optimization.
+        input_names=['input'],                          # the model's input names.
+        output_names=['output'],                        # the model's output names.
+        dynamic_axes={                                  # variable length axes.
+            'input': {0: 'batch_size'},
+            'output': {0: 'batch_size'}})
+
+    if check_model_TF:  # Verify the model’s structure and confirm that the model has a valid schema.
+        onnx_model = onnx.load(onnx_save_dir)
+        onnx.checker.check_model(onnx_model)
+```
+
+``` python
+def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
+    ''' Running the model on an image using ONNX Runtime. '''
+    # Take the tensor representing the greyscale resized image.
+    img = Image.open(image_dir)
+    resize = transforms.Resize([224, 224])
+    img = resize(img)
+    img_ycbcr = img.convert('YCbCr')
+    img_y, img_cb, img_cr = img_ycbcr.split()
+    to_tensor = transforms.ToTensor()
+    img_y = to_tensor(img_y)
+    img_y.unsqueeze_(0)
+
+    # Create an inference session.
+    ort_session = onnxruntime.InferenceSession(onnx_dir)
+
+    # Run the ONNX model in ONNX Runtime.
+    ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(img_y)}
+    ort_outs = ort_session.run(None, ort_inputs)
+    img_out_y = ort_outs[0]
+
+    # Get the output image.
+    img_out_y = Image.fromarray(np.uint8((img_out_y[0] * 255.0).clip(0, 255)[0]), mode='L')
+    final_img = Image.merge(
+        "YCbCr", [
+            img_out_y,
+            img_cb.resize(img_out_y.size, Image.BICUBIC),
+            img_cr.resize(img_out_y.size, Image.BICUBIC),
+        ]).convert("RGB")
+
+    # Save the image, compare this with the output image from mobile device.
+    final_img.save("{}/cat_superres_with_ort.jpg".format(os.path.dirname(__file__)))
+```
+
+And see [PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py](./PyTorch2ONNX/PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py) for the full Python script.
 
 ---
 
