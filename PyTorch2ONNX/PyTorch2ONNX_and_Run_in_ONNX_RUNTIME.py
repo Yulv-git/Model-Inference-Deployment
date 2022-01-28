@@ -6,7 +6,7 @@ Email: yulvchi@qq.com
 Date: 2022-01-28 14:21:09
 Motto: Entities should not be multiplied unnecessarily.
 LastEditors: Shuangchi He
-LastEditTime: 2022-01-28 14:23:32
+LastEditTime: 2022-01-28 14:37:53
 FilePath: /Model_Inference_Deployment/PyTorch2ONNX/PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py
 Description: Init from https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
     Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME.
@@ -53,7 +53,7 @@ class SuperResolutionNet(nn.Module):
         init.orthogonal_(self.conv4.weight)
 
 
-def Pytorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
+def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
     ''' Export the model. (PyTorch2ONNX) '''
     torch.onnx.export(
         torch_model,                                    # model being run.
@@ -146,7 +146,7 @@ def main():
 
     # Export the model. (PyTorch2ONNX)
     onnx_save_dir = '{}/super_resolution.onnx'.format(os.path.dirname(__file__))
-    Pytorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir)
+    PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir)
 
     # Verify ONNX Runtime and PyTorch are computing the same value for the model.
     Verify_ONNX_in_ONNX_RUNTIME(onnx_save_dir, dummy_input_to_model, torch_out)

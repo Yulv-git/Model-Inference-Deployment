@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-28 14:23:14
+ * @LastEditTime: 2022-01-28 14:37:15
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
@@ -191,14 +191,14 @@ Bolt is a light-weight library for deep learning. Bolt, as a universal deploymen
 
 ## 3.1. ONNX
 
-ONNX is widely supported and can be found in many frameworks, tools, and hardware. Enabling interoperability between different frameworks and streamlining the path from research to production helps increase the speed of innovation in the AI community. We invite the community to join us and further evolve ONNX.
+ONNX is widely supported and can be found in many frameworks, tools, and hardware. Enabling interoperability between different frameworks and streamlining the path from research to production helps increase the speed of innovation in the AI community.
 
 ### 3.1.1. Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME
 
 The main functions are as follows:
 
 ``` python
-def Pytorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
+def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
     ''' Export the model. (PyTorch2ONNX) '''
     torch.onnx.export(
         torch_model,                                    # model being run.
