@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-04-06 11:03:43
+ * @LastEditTime: 2022-04-06 11:42:47
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
@@ -198,7 +198,7 @@ ONNX is widely supported and can be found in many frameworks, tools, and hardwar
 The main functions are as follows:
 
 ``` python
-def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
+def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_onnx_model=True):
     ''' Export the model. (PyTorch2ONNX) '''
     torch.onnx.export(
         torch_model,                                    # model being run.
@@ -213,16 +213,16 @@ def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_T
             'input': {0: 'batch_size'},
             'output': {0: 'batch_size'}})
 
-    if check_model_TF:  # Verify the model’s structure and confirm that the model has a valid schema.
+    if check_onnx_model:  # Verify the model’s structure and confirm that the model has a valid schema.
         onnx_model = onnx.load(onnx_save_dir)
         onnx.checker.check_model(onnx_model)
 ```
 
 ``` python
-def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
+def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
     ''' Running the model on an image using ONNX Runtime. '''
     # Take the tensor representing the greyscale resized image.
-    img = Image.open(image_dir)
+    img = Image.open(img_path)
     resize = transforms.Resize([224, 224])
     img = resize(img)
     img_ycbcr = img.convert('YCbCr')
@@ -235,7 +235,7 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
     ort_session = onnxruntime.InferenceSession(onnx_dir)
 
     # Run the ONNX model in ONNX Runtime.
-    ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(img_y)}
+    ort_inputs = {ort_session.get_inputs()[0].name: torchtensor2numpy(img_y)}
     ort_outs = ort_session.run(None, ort_inputs)
     img_out_y = ort_outs[0]
 
@@ -249,7 +249,7 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
         ]).convert("RGB")
 
     # Save the image, compare this with the output image from mobile device.
-    final_img.save("{}/cat_superres_with_ort.jpg".format(os.path.dirname(__file__)))
+    final_img.save(img_save_path)
 ```
 
 And see [PyTorch2ONNX_Run_in_ONNX_RUNTIME.py](./src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py) for the full Python script.
