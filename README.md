@@ -4,13 +4,13 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-01-28 14:37:15
+ * @LastEditTime: 2022-04-06 11:03:43
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
 -->
 
-<font size=5><b><big><center> Model_Inference_Deployment </center></b></big></font>
+<h1><center> Model_Inference_Deployment </center></h1>
 
     Inference deployment of artificial intelligence models.
 
@@ -71,11 +71,11 @@ ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](
 
 Eg:
 
-* PyTorch --> ONNX --> ONNX RUNTIME
-* PyTorch --> ONNX --> TensorRT
-* PyTorch --> ONNX --> TVM
-* TensorFlow --> ONNX --> NCNN
-* PyTorch --> ONNX --> TensorFlow
+- PyTorch --> ONNX --> ONNX RUNTIME
+- PyTorch --> ONNX --> TensorRT
+- PyTorch --> ONNX --> TVM
+- TensorFlow --> ONNX --> NCNN
+- PyTorch --> ONNX --> TensorFlow
 
 ---
 
@@ -252,7 +252,7 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
     final_img.save("{}/cat_superres_with_ort.jpg".format(os.path.dirname(__file__)))
 ```
 
-And see [PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py](./PyTorch2ONNX/PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py) for the full Python script.
+And see [PyTorch2ONNX_Run_in_ONNX_RUNTIME.py](./src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py) for the full Python script.
 
 ---
 

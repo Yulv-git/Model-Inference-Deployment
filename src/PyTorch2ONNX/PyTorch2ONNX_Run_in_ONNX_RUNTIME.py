@@ -6,11 +6,12 @@ Email: yulvchi@qq.com
 Date: 2022-01-28 14:21:09
 Motto: Entities should not be multiplied unnecessarily.
 LastEditors: Shuangchi He
-LastEditTime: 2022-01-28 14:37:53
-FilePath: /Model_Inference_Deployment/PyTorch2ONNX/PyTorch2ONNX_and_Run_in_ONNX_RUNTIME.py
+LastEditTime: 2022-04-06 11:40:23
+FilePath: /Model_Inference_Deployment/src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py
 Description: Init from https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
     Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME.
 '''
+import argparse
 import os
 import numpy as np
 from PIL import Image
@@ -18,11 +19,11 @@ import torch.nn as nn
 import torch.nn.init as init
 import torch.utils.model_zoo as model_zoo
 import torchvision.transforms as transforms
-
 import onnx
 import torch.onnx
-
 import onnxruntime
+
+from utils import check_dir, torchtensor2numpy
 
 
 # Super Resolution model definition in PyTorch
@@ -53,7 +54,7 @@ class SuperResolutionNet(nn.Module):
         init.orthogonal_(self.conv4.weight)
 
 
-def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_TF=True):
+def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_onnx_model=True):
     ''' Export the model. (PyTorch2ONNX) '''
     torch.onnx.export(
         torch_model,                                    # model being run.
@@ -68,13 +69,9 @@ def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_model_T
             'input': {0: 'batch_size'},
             'output': {0: 'batch_size'}})
 
-    if check_model_TF:  # Verify the model’s structure and confirm that the model has a valid schema.
+    if check_onnx_model:  # Verify the model’s structure and confirm that the model has a valid schema.
         onnx_model = onnx.load(onnx_save_dir)
         onnx.checker.check_model(onnx_model)
-
-
-def to_numpy(tensor):
-    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
 
 def Verify_ONNX_in_ONNX_RUNTIME(onnx_dir, dummy_input_to_model, torch_out):
@@ -83,19 +80,19 @@ def Verify_ONNX_in_ONNX_RUNTIME(onnx_dir, dummy_input_to_model, torch_out):
     ort_session = onnxruntime.InferenceSession(onnx_dir)
 
     # Compute ONNX Runtime output prediction.
-    ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(dummy_input_to_model)}
+    ort_inputs = {ort_session.get_inputs()[0].name: torchtensor2numpy(dummy_input_to_model)}
     ort_outs = ort_session.run(None, ort_inputs)
 
     # Compare ONNX Runtime and PyTorch results
-    np.testing.assert_allclose(to_numpy(torch_out), ort_outs[0], rtol=1e-03, atol=1e-05)
+    np.testing.assert_allclose(torchtensor2numpy(torch_out), ort_outs[0], rtol=1e-03, atol=1e-05)
 
     print("Exported model has been tested with ONNXRuntime, and the result looks good!")
 
 
-def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
+def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
     ''' Running the model on an image using ONNX Runtime. '''
     # Take the tensor representing the greyscale resized image.
-    img = Image.open(image_dir)
+    img = Image.open(img_path)
     resize = transforms.Resize([224, 224])
     img = resize(img)
     img_ycbcr = img.convert('YCbCr')
@@ -108,7 +105,7 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
     ort_session = onnxruntime.InferenceSession(onnx_dir)
 
     # Run the ONNX model in ONNX Runtime.
-    ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(img_y)}
+    ort_inputs = {ort_session.get_inputs()[0].name: torchtensor2numpy(img_y)}
     ort_outs = ort_session.run(None, ort_inputs)
     img_out_y = ort_outs[0]
 
@@ -122,10 +119,10 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, image_dir):
         ]).convert("RGB")
 
     # Save the image, compare this with the output image from mobile device.
-    final_img.save("{}/cat_superres_with_ort.jpg".format(os.path.dirname(__file__)))
+    final_img.save(img_save_path)
 
 
-def main():
+def main(args):
     # Create the super-resolution model.
     torch_model = SuperResolutionNet(upscale_factor=3)
 
@@ -145,16 +142,24 @@ def main():
     torch_out = torch_model(dummy_input_to_model)
 
     # Export the model. (PyTorch2ONNX)
-    onnx_save_dir = '{}/super_resolution.onnx'.format(os.path.dirname(__file__))
-    PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir)
+    PyTorch2ONNX(torch_model, dummy_input_to_model, args.onnx_save_dir, args.check_onnx_model)
 
     # Verify ONNX Runtime and PyTorch are computing the same value for the model.
-    Verify_ONNX_in_ONNX_RUNTIME(onnx_save_dir, dummy_input_to_model, torch_out)
+    Verify_ONNX_in_ONNX_RUNTIME(args.onnx_save_dir, dummy_input_to_model, torch_out)
 
     # Running the model on an image using ONNX Runtime.
-    image_dir = '{}/cat.jpg'.format(os.path.dirname(__file__))
-    Run_ONNX_in_ONNX_RUNTIME(onnx_save_dir, image_dir)
+    Run_ONNX_in_ONNX_RUNTIME(args.onnx_save_dir, args.img_path, args.img_save_path)
 
 
 if __name__ == "__main__":
-    main()
+    parse = argparse.ArgumentParser(description='PyTorch2ONNX_Run_in_ONNX_RUNTIME')
+    parse.add_argument('--img_path', type=str, default='{}/data/cat.jpg'.format(os.path.dirname(os.path.abspath(__file__))))
+    parse.add_argument('--check_onnx_model', type=bool, default=True)
+    parse.add_argument('--output_dir', type=str, default='{}/output'.format(os.path.dirname(os.path.abspath(__file__))))
+    args = parse.parse_args()
+
+    check_dir(args.output_dir)
+    args.onnx_save_dir = '{}/super_resolution.onnx'.format(args.output_dir)
+    args.img_save_path = '{}/cat_superres_with_ort.jpg'.format(args.output_dir)
+
+    main(args)
