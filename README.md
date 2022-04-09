@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-04-06 11:42:47
+ * @LastEditTime: 2022-04-09 10:40:02
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
@@ -145,7 +145,7 @@ TNN: A high-performance, lightweight neural network inference framework open sou
 
 ## 2.10. MNN
 
-[Official Website](https://www.mnn.zone/index.html) | [GitHub](https://github.com/alibaba/MNN)
+[Official Website](https://www.mnn.zone/m/0.2/) | [GitHub](https://github.com/alibaba/MNN)
 
 MNN is a highly efficient and lightweight deep learning framework. It supports inference and training of deep learning models, and has industry leading performance for inference and training on-device. At present, MNN has been integrated in more than 20 apps of Alibaba Inc, such as Taobao, Tmall, Youku, Dingtalk, Xianyu and etc., covering more than 70 usage scenarios such as live broadcast, short video capture, search recommendation, product searching by image, interactive marketing, equity distribution, security risk control. In addition, MNN is also used on embedded devices, such as IoT.
 
