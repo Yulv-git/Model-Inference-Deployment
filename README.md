@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-04-09 10:40:02
+ * @LastEditTime: 2022-04-09 10:42:39
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: Inference deployment of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
@@ -25,7 +25,7 @@
 | [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
 | [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
 | [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu, etc. |  |
-| [MNN](https://www.mnn.zone/index.html) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
+| [MNN](https://www.mnn.zone/m/0.2/) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
 | [TVM](https://tvm.apache.org) | University of Washington | Python, Java, C++, TypeScript | TensorFlow, Keras, MXNet, PyTorch, CoreML, DarkNet, ONNX |  | CPU, GPU, NPU, DSP, FPGA | Microcontrollers, Browsers, etc. |  |  |  |
 | [MACE](https://mace.readthedocs.io/en/latest/introduction.html) | Xiaomi |  | TensorFlow, Caffe, ONNX |  | CPU, GPU, DSP |  | Android, iOS, Linux, Windows |  |  |
 | [Paddle Lite](https://paddle-lite.readthedocs.io/zh/develop/guide/introduction.html) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://paddle-lite.readthedocs.io/zh/develop/quick_start/support_hardware.html#), etc. | Android, iOS, Linux, Windows, macOS |  |  |
