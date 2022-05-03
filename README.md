@@ -4,17 +4,17 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-04-09 10:42:39
+ * @LastEditTime: 2022-05-03 12:42:38
  * @FilePath: /Model_Inference_Deployment/README.md
- * @Description: Inference deployment of artificial intelligence models.
+ * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
 -->
 
 <h1><center> Model_Inference_Deployment </center></h1>
 
-    Inference deployment of artificial intelligence models.
+    A curated list of awesome inference deployment framework of artificial intelligence models.
 
-| Tool | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
+| Framework | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
 | [TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, PyTorch, MXNet, PaddlePaddle, MATLAB, ONNX | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
@@ -38,7 +38,7 @@
 <font size=4><b><center> Table of Contents </center></b></font>
 
 - [1. ONNX](#1-onnx)
-- [2. Tool](#2-tool)
+- [2. Framework](#2-framework)
   - [2.1. OpenVINO](#21-openvino)
   - [2.2. TensorRT](#22-tensorrt)
   - [2.3. MediaPipe](#23-mediapipe)
@@ -79,7 +79,7 @@ Eg:
 
 ---
 
-# 2. Tool
+# 2. Framework
 
 ## 2.1. OpenVINO
 
