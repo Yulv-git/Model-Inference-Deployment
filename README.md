@@ -4,7 +4,7 @@
  * @Date: 2022-01-24 10:48:28
  * @Motto: Entities should not be multiplied unnecessarily.
  * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-06-18 15:35:39
+ * @LastEditTime: 2022-06-18 15:36:59
  * @FilePath: /Model_Inference_Deployment/README.md
  * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
@@ -258,4 +258,4 @@ And see [PyTorch2ONNX_Run_in_ONNX_RUNTIME.py](./src/PyTorch2ONNX/PyTorch2ONNX_Ru
 
 <font size=4><b><big> Contributing </b></big></font>
 
-If you have any suggestions, improvements, please feel free to create issues or pull requests.
+If you have any suggestions or improvements, please feel free to create issues or pull requests.
