@@ -57,7 +57,7 @@
   - [2.16. Bolt](#216-bolt)
 - [3. Practice](#3-practice)
   - [3.1. ONNX](#31-onnx)
-    - [3.1.1. Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME](#311-exporting-a-model-from-pytorch-to-onnx-and-running-it-using-onnx-runtime)
+    - [3.1.1. Export a model from PyTorch to ONNX and run it using ONNX RUNTIME](#311-export-a-model-from-pytorch-to-onnx-and-run-it-using-onnx-runtime)
 
 ---
 
@@ -193,7 +193,7 @@ Bolt is a light-weight library for deep learning. Bolt, as a universal deploymen
 
 ONNX is widely supported and can be found in many frameworks, tools, and hardware. Enabling interoperability between different frameworks and streamlining the path from research to production helps increase the speed of innovation in the AI community.
 
-### 3.1.1. Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME
+### 3.1.1. Export a model from PyTorch to ONNX and run it using ONNX RUNTIME
 
 The main functions are as follows:
 
@@ -220,7 +220,7 @@ def PyTorch2ONNX(torch_model, dummy_input_to_model, onnx_save_dir, check_onnx_mo
 
 ``` python
 def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
-    ''' Running the model on an image using ONNX Runtime. '''
+    ''' Run the model on an image using ONNX Runtime. '''
     # Take the tensor representing the greyscale resized image.
     img = Image.open(img_path)
     resize = transforms.Resize([224, 224])
