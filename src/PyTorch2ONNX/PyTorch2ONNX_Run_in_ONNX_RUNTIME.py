@@ -26,8 +26,8 @@ import onnxruntime
 from utils import check_dir, torchtensor2numpy
 
 
-# Super Resolution model definition in PyTorch
 class SuperResolutionNet(nn.Module):
+    ''' Super Resolution model definition in PyTorch. '''
     def __init__(self, upscale_factor, inplace=False):
         super(SuperResolutionNet, self).__init__()
         self.relu = nn.ReLU(inplace=inplace)
@@ -93,7 +93,7 @@ def Verify_ONNX_in_ONNX_RUNTIME(onnx_dir, dummy_input_to_model, torch_out):
 
 
 def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
-    ''' Running the model on an image using ONNX Runtime. '''
+    ''' Run the model on an image using ONNX Runtime. '''
     # Take the tensor representing the greyscale resized image.
     img = Image.open(img_path)
     resize = transforms.Resize([224, 224])
@@ -150,12 +150,12 @@ def main(args):
     # Verify ONNX Runtime and PyTorch are computing the same value for the model.
     Verify_ONNX_in_ONNX_RUNTIME(args.onnx_save_dir, dummy_input_to_model, torch_out)
 
-    # Running the model on an image using ONNX Runtime.
+    # Run the model on an image using ONNX Runtime.
     Run_ONNX_in_ONNX_RUNTIME(args.onnx_save_dir, args.img_path, args.img_save_path)
 
 
 if __name__ == "__main__":
-    parse = argparse.ArgumentParser(description='PyTorch2ONNX_Run_in_ONNX_RUNTIME')
+    parse = argparse.ArgumentParser(description='Export a model from PyTorch to ONNX and run it using ONNX RUNTIME.')
     parse.add_argument('--img_path', type=str, default='{}/data/cat.jpg'.format(os.path.dirname(os.path.abspath(__file__))))
     parse.add_argument('--check_onnx_model', type=bool, default=True)
     parse.add_argument('--output_dir', type=str, default='{}/output'.format(os.path.dirname(os.path.abspath(__file__))))
