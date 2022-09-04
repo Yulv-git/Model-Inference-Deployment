@@ -34,7 +34,8 @@ class SuperResolutionNet(nn.Module):
         self.conv1 = nn.Conv2d(1, 64, (5, 5), (1, 1), (2, 2))
         self.conv2 = nn.Conv2d(64, 64, (3, 3), (1, 1), (1, 1))
         self.conv3 = nn.Conv2d(64, 32, (3, 3), (1, 1), (1, 1))
-        self.conv4 = nn.Conv2d(32, upscale_factor ** 2, (3, 3), (1, 1), (1, 1))
+
+        self.conv4 = nn.Conv2d(32, 1 * (upscale_factor ** 2), (3, 3), (1, 1), (1, 1))
         self.pixel_shuffle = nn.PixelShuffle(upscale_factor)
 
         self._initialize_weights()
@@ -43,6 +44,8 @@ class SuperResolutionNet(nn.Module):
         x = self.relu(self.conv1(x))
         x = self.relu(self.conv2(x))
         x = self.relu(self.conv3(x))
+
+        # Increase spatial resolution with Sub-Pixel conv.
         x = self.pixel_shuffle(self.conv4(x))
 
         return x
@@ -83,7 +86,7 @@ def Verify_ONNX_in_ONNX_RUNTIME(onnx_dir, dummy_input_to_model, torch_out):
     ort_inputs = {ort_session.get_inputs()[0].name: torchtensor2numpy(dummy_input_to_model)}
     ort_outs = ort_session.run(None, ort_inputs)
 
-    # Compare ONNX Runtime and PyTorch results
+    # Compare ONNX Runtime and PyTorch results.
     np.testing.assert_allclose(torchtensor2numpy(torch_out), ort_outs[0], rtol=1e-03, atol=1e-05)
 
     print("Exported model has been tested with ONNXRuntime, and the result looks good!")
