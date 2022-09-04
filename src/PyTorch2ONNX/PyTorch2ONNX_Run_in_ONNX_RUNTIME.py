@@ -9,18 +9,18 @@ LastEditors: Shuangchi He
 LastEditTime: 2022-04-06 11:40:23
 FilePath: /Model_Inference_Deployment/src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py
 Description: Init from https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html
-    Exporting a model from PyTorch to ONNX and running it using ONNX RUNTIME.
+    Export a model from PyTorch to ONNX and run it using ONNX RUNTIME.
 '''
 import argparse
 import os
 import numpy as np
 from PIL import Image
+import torch
 import torch.nn as nn
 import torch.nn.init as init
 import torch.utils.model_zoo as model_zoo
 import torchvision.transforms as transforms
 import onnx
-import torch.onnx
 import onnxruntime
 
 from utils import check_dir, torchtensor2numpy
