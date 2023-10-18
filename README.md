@@ -1,18 +1,16 @@
 <!--
- * @Author: Shuangchi He / Yulv
+ * @Author: Yulv
  * @Email: yulvchi@qq.com
  * @Date: 2022-01-24 10:48:28
- * @Motto: Entities should not be multiplied unnecessarily.
- * @LastEditors: Shuangchi He
- * @LastEditTime: 2022-06-18 15:36:59
- * @FilePath: /Model_Inference_Deployment/README.md
+ * @LastEditTime: 2023-10-18 22:42:45
+ * @FilePath: \Model-Inference-Deployment\README.md
  * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
- * Repository: https://github.com/Yulv-git/Model_Inference_Deployment
+ * Repository: https://github.com/Yulv-git/Model-Inference-Deployment
 -->
 
-<h1><center> Model_Inference_Deployment </center></h1>
+<h1><center> Model Inference Deployment </center></h1>
 
-    A curated list of awesome inference deployment framework of artificial intelligence models.
+A curated list of awesome inference deployment framework of artificial intelligence models.
 
 | Framework | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -23,12 +21,12 @@
 | [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
 | [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
 | [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
-| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat, Pitu, etc. |  |
-| [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu, etc. |  |
-| [MNN](https://www.mnn.zone/m/0.2/) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
+| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat (微信), Pitu (天天 P 图), etc. |  |
+| [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu (天天 P 图), etc. |  |
+| [MNN](http://www.mnn.zone) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
 | [TVM](https://tvm.apache.org) | University of Washington | Python, Java, C++, TypeScript | TensorFlow, Keras, MXNet, PyTorch, CoreML, DarkNet, ONNX |  | CPU, GPU, NPU, DSP, FPGA | Microcontrollers, Browsers, etc. |  |  |  |
 | [MACE](https://mace.readthedocs.io/en/latest/introduction.html) | Xiaomi |  | TensorFlow, Caffe, ONNX |  | CPU, GPU, DSP |  | Android, iOS, Linux, Windows |  |  |
-| [Paddle Lite](https://paddle-lite.readthedocs.io/zh/develop/guide/introduction.html) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://paddle-lite.readthedocs.io/zh/develop/quick_start/support_hardware.html#), etc. | Android, iOS, Linux, Windows, macOS |  |  |
+| [Paddle Lite](https://www.paddlepaddle.org.cn/lite) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://paddle-lite.readthedocs.io/zh/develop/quick_start/support_hardware.html#), etc. | Android, iOS, Linux, Windows, macOS |  |  |
 | [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii |  Python, C, C++ | MegEngine | INT8  | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
 | [OpenPPL](https://openppl.ai/home) | SenseTime | C++, Python, Lua | ONNX | FP16 | CPU, GPU |  | Linux, RISC-V |  |  |
 | [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
@@ -71,11 +69,11 @@ ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](
 
 Eg:
 
-- PyTorch --> ONNX --> ONNX RUNTIME
-- PyTorch --> ONNX --> TensorRT
-- PyTorch --> ONNX --> TVM
-- TensorFlow --> ONNX --> NCNN
-- PyTorch --> ONNX --> TensorFlow
+- PyTorch → ONNX → ONNX RUNTIME
+- PyTorch → ONNX → TensorRT
+- PyTorch → ONNX → TVM
+- TensorFlow → ONNX → NCNN
+- PyTorch → ONNX → TensorFlow
 
 ---
 
@@ -135,19 +133,19 @@ LibTorch: C++ distributions of PyTorch.
 
 [Official Website](https://ncnn.docsforge.com) | [GitHub](https://github.com/Tencent/ncnn)
 
-NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. it is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, Qzone, WeChat, Pitu and so on.
+NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. It is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, Qzone, WeChat (微信), Pitu (天天 P 图) and so on.
 
 ## 2.9. TNN
 
 [GitHub](https://github.com/Tencent/TNN)
 
-TNN: A high-performance, lightweight neural network inference framework open sourced by Tencent Youtu Lab. It also has many outstanding advantages such as cross-platform, high performance, model compression, and code tailoring. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and ncnn frameworks. At the same time, it refers to the high performance and good scalability characteristics of the industry's mainstream open source frameworks, and expands the support for X86 and NV GPUs. On the mobile phone, TNN has been used by many applications such as mobile QQ, weishi, and Pitu. As a basic acceleration framework for Tencent Cloud AI, TNN has provided acceleration support for the implementation of many businesses. Everyone is welcome to participate in the collaborative construction to promote the further improvement of the TNN inference framework.
+TNN: A high-performance, lightweight neural network inference framework open sourced by Tencent Youtu Lab. It also has many outstanding advantages such as cross-platform, high performance, model compression, and code tailoring. The TNN framework further strengthens the support and performance optimization of mobile devices on the basis of the original Rapidnet and NCNN frameworks. At the same time, it refers to the high performance and good scalability characteristics of the industry's mainstream open source frameworks, and expands the support for X86 and NV GPUs. On the mobile phone, TNN has been used by many applications such as mobile QQ, weishi (微视), and Pitu (天天 P 图). As a basic acceleration framework for Tencent Cloud AI, TNN has provided acceleration support for the implementation of many businesses. Everyone is welcome to participate in the collaborative construction to promote the further improvement of the TNN inference framework.
 
 ## 2.10. MNN
 
-[Official Website](https://www.mnn.zone/m/0.2/) | [GitHub](https://github.com/alibaba/MNN)
+[Official Website](http://www.mnn.zone) | [GitHub](https://github.com/alibaba/MNN)
 
-MNN is a highly efficient and lightweight deep learning framework. It supports inference and training of deep learning models, and has industry leading performance for inference and training on-device. At present, MNN has been integrated in more than 20 apps of Alibaba Inc, such as Taobao, Tmall, Youku, Dingtalk, Xianyu and etc., covering more than 70 usage scenarios such as live broadcast, short video capture, search recommendation, product searching by image, interactive marketing, equity distribution, security risk control. In addition, MNN is also used on embedded devices, such as IoT.
+MNN is a highly efficient and lightweight deep learning framework. It supports inference and training of deep learning models, and has industry leading performance for inference and training on-device. At present, MNN has been integrated in more than 30 apps of Alibaba Inc, such as Taobao (淘宝), Tmall (天猫), Youku (优酷), Dingtalk (钉钉), Xianyu (咸鱼) and etc., covering more than 70 usage scenarios such as live broadcast, short video capture, search recommendation, product searching by image, interactive marketing, equity distribution, security risk control. In addition, MNN is also used on embedded devices, such as IoT.
 
 ## 2.11. TVM
 
@@ -163,7 +161,7 @@ MACE (Mobile AI Compute Engine) is a deep learning inference framework optimized
 
 ## 2.13. Paddle Lite
 
-[Official Website](https://paddle-lite.readthedocs.io/zh/develop/guide/introduction.html) | [GitHub](https://github.com/PaddlePaddle/Paddle-Lite)
+[Official Website](https://www.paddlepaddle.org.cn/lite) | [GitHub](https://github.com/PaddlePaddle/Paddle-Lite)
 
 Paddle Lite is an updated version of Paddle-Mobile, an open-open source deep learning framework designed to make it easy to perform inference on mobile, embeded, and IoT devices. It is compatible with PaddlePaddle and pre-trained models from other sources.
 
