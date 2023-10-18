@@ -2,7 +2,7 @@
  * @Author: Yulv
  * @Email: yulvchi@qq.com
  * @Date: 2022-01-24 10:48:28
- * @LastEditTime: 2023-10-18 22:42:45
+ * @LastEditTime: 2023-10-18 23:09:03
  * @FilePath: \Model-Inference-Deployment\README.md
  * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model-Inference-Deployment
@@ -21,12 +21,12 @@ A curated list of awesome inference deployment framework of artificial intellige
 | [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
 | [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
 | [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
-| [NCNN](https://ncnn.docsforge.com) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone, WeChat (微信), Pitu (天天 P 图), etc. |  |
+| [NCNN](https://github.com/Tencent/ncnn) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone (QQ 空间), WeChat (微信), Pitu (天天 P 图), etc. |  |
 | [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu (天天 P 图), etc. |  |
 | [MNN](http://www.mnn.zone) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
 | [TVM](https://tvm.apache.org) | University of Washington | Python, Java, C++, TypeScript | TensorFlow, Keras, MXNet, PyTorch, CoreML, DarkNet, ONNX |  | CPU, GPU, NPU, DSP, FPGA | Microcontrollers, Browsers, etc. |  |  |  |
 | [MACE](https://mace.readthedocs.io/en/latest/introduction.html) | Xiaomi |  | TensorFlow, Caffe, ONNX |  | CPU, GPU, DSP |  | Android, iOS, Linux, Windows |  |  |
-| [Paddle Lite](https://www.paddlepaddle.org.cn/lite) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://paddle-lite.readthedocs.io/zh/develop/quick_start/support_hardware.html#), etc. | Android, iOS, Linux, Windows, macOS |  |  |
+| [Paddle Lite](https://www.paddlepaddle.org.cn/lite) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://www.paddlepaddle.org.cn/lite/v2.12/quick_start/support_hardware.html), etc. | Android, iOS, Linux, Windows, macOS |  |  |
 | [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii |  Python, C, C++ | MegEngine | INT8  | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
 | [OpenPPL](https://openppl.ai/home) | SenseTime | C++, Python, Lua | ONNX | FP16 | CPU, GPU |  | Linux, RISC-V |  |  |
 | [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
@@ -133,7 +133,7 @@ LibTorch: C++ distributions of PyTorch.
 
 [Official Website](https://ncnn.docsforge.com) | [GitHub](https://github.com/Tencent/ncnn)
 
-NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. It is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, Qzone, WeChat (微信), Pitu (天天 P 图) and so on.
+NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. It is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, QZone (QQ 空间), WeChat (微信), Pitu (天天 P 图) and so on.
 
 ## 2.9. TNN
 
