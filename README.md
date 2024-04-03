@@ -12,7 +12,7 @@
 
 A curated list of awesome inference deployment framework of artificial intelligence models.
 
-| Framework | Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
+| Framework | Main Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
 | [TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, PyTorch, MXNet, PaddlePaddle, MATLAB, ONNX | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
@@ -20,7 +20,7 @@ A curated list of awesome inference deployment framework of artificial intellige
 | [TensorFlow Lite](https://www.tensorflow.org/lite) | Google | C++, Java, Python, Swift, Objective-C (coming soon) | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, Microcontrollers, etc. | Linux, iOS, Android, Raspberry Pi | Google Search, Gmail, Google Translate, WPS Office, VSCO, etc. |  |
 | [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
 | [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
-| [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
+| [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook/Meta | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
 | [NCNN](https://github.com/Tencent/ncnn) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone (QQ 空间), WeChat (微信), Pitu (天天 P 图), etc. |  |
 | [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu (天天 P 图), etc. |  |
 | [MNN](http://www.mnn.zone) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
@@ -251,6 +251,11 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
 ```
 
 And see [PyTorch2ONNX_Run_in_ONNX_RUNTIME.py](./src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py) for the full Python script.
+
+---
+
+TODO
+- [ ] Add ExecuTorch
 
 ---
 
