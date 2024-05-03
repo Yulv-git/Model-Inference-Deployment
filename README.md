@@ -2,7 +2,7 @@
  * @Author: Yulv
  * @Email: yulvchi@qq.com
  * @Date: 2022-01-24 10:48:28
- * @LastEditTime: 2023-10-18 23:09:03
+ * @LastEditTime: 2024-05-04 01:03:53
  * @FilePath: \Model-Inference-Deployment\README.md
  * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model-Inference-Deployment
@@ -14,22 +14,22 @@ A curated list of awesome inference deployment framework of artificial intellige
 
 | Framework | Main Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices](https://docs.openvino.ai/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html), Amazon Alexa Premium Far-Field Developer Kit, etc. | Linux, Windows, macOS, Raspbian  |  |  |
+| [OpenVINO](https://docs.openvino.ai/latest/index.html) | Intel | C, C++, Python | TensorFlow, Caffe, MXNet, Keras, PyTorch, PaddlePaddle, ONNX | INT8, FP16 | CPU, iGPU, GPU, VPU, GNA, FPGA (deprecated after 2020.4) | [Intel series devices, Amazon Alexa Premium Far-Field Developer Kit, etc](https://docs.openvino.ai/2022.3/openvino_docs_OV_UG_supported_plugins_Supported_Devices.html). | Linux, Windows, macOS, Raspbian  |  |  |
 | [TensorRT](https://developer.nvidia.com/zh-cn/tensorrt) | NVIDIA | C++, Python | TensorFlow, Caffe, CNTK, Chainer, PyTorch, MXNet, PaddlePaddle, MATLAB, ONNX | INT8, FP16 | GPU | NIVDIA GPU, NIVDIA Jetson, Tesla GPU, etc. | Linux, Windows |  |  |
-| [MediaPipe](https://google.github.io/mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian, macOS, Windows (experimental) | Youtube, Google Lens, ARCore, Google Home, etc. |  |
+| [MediaPipe](https://developers.google.com/mediapipe) | Google | C++, JavaScript, Python | TensorFlow |  | GPU, TPU | Google Coral, etc. | Linux, Android, iOS, Raspbian, macOS, Windows (experimental) | Youtube, Google Lens, ARCore, Google Home, etc. |  |
 | [TensorFlow Lite](https://www.tensorflow.org/lite) | Google | C++, Java, Python, Swift, Objective-C (coming soon) | TensorFlow | INT8, FP16 | CPU, GPU, TPU, NPU, DSP | Google Coral, Microcontrollers, etc. | Linux, iOS, Android, Raspberry Pi | Google Search, Gmail, Google Translate, WPS Office, VSCO, etc. |  |
 | [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) | Google | gRPC, RESTful | TensorFlow |  | GPU, TPU |  |  |  |  |
-| [ONNX Runtime](https://onnxruntime.ai/about.html) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
+| [ONNX Runtime](https://onnxruntime.ai) | Microsoft | C, C++, C#, Java, JavaScript, Python, WinRT, Objective-C, Ruby, Julia | TensorFlow, PyTorch, Keras, SciKit Learn, LightGBM, XGBoost, ONNX | INT8, UINT8 | CPU, GPU, NPU (preview) |  | Linux, Windows, macOS, iOS, Android, WebAssembly | Office 365, Bing, Visual Studio, etc. |  |
 | [LibTorch](https://pytorch.org/cppdocs/installing.html) | FaceBook/Meta | C++ | PyTorch |  | CPU, GPU |  | Linux, Windows, macOS |  |  |
 | [NCNN](https://github.com/Tencent/ncnn) | Tencent |  | TensorFlow, Caffe, MXNet, Keras, PyTorch, ONNX | INT8, FP16 | CPU, GPU |  | Linux, Windows, Android, macOS, iOS, WebAssembly, RISC-V GCC/Newlib | QQ, QZone (QQ 空间), WeChat (微信), Pitu (天天 P 图), etc. |  |
 | [TNN](https://github.com/Tencent/TNN) | Tencent |  | TensorFlow, Caffe, MXNet, PyTorch, ONNX | INT8, FP16 | CPU, GPU, NPU |  | Linux, Android, iOS, Windows | mobile QQ, weishi, Pitu (天天 P 图), etc. |  |
-| [MNN](http://www.mnn.zone) | Alibaba | Python | TensorFlow, Caffe, ONNX | FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
+| [MNN](http://www.mnn.zone) | Alibaba | Python | TensorFlow, Caffe, ONNX | INT8, BF16, FP16 | CPU, GPU, NPU | embedded devices with POSIX interface, etc. | iOS, Android, Linux, Windows | Taobao, Tmall, Youku, Dingtalk, Xianyu, etc. | |
 | [TVM](https://tvm.apache.org) | University of Washington | Python, Java, C++, TypeScript | TensorFlow, Keras, MXNet, PyTorch, CoreML, DarkNet, ONNX |  | CPU, GPU, NPU, DSP, FPGA | Microcontrollers, Browsers, etc. |  |  |  |
 | [MACE](https://mace.readthedocs.io/en/latest/introduction.html) | Xiaomi |  | TensorFlow, Caffe, ONNX |  | CPU, GPU, DSP |  | Android, iOS, Linux, Windows |  |  |
 | [Paddle Lite](https://www.paddlepaddle.org.cn/lite) | Baidu | C++, Java, Python |  PaddlePaddle | INT8, INT16 | CPU, GPU, NPU, FPGA, XPU, APU, NNA, TPU | [ARM Cortex-A family of processors, ARM Mali, Qualcomm Adreno, Apple A Series GPU](https://www.paddlepaddle.org.cn/lite/v2.12/quick_start/support_hardware.html), etc. | Android, iOS, Linux, Windows, macOS |  |  |
-| [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii |  Python, C, C++ | MegEngine | INT8  | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
+| [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii | Python, C, C++ | MegEngine | INT8 | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
 | [OpenPPL](https://openppl.ai/home) | SenseTime | C++, Python, Lua | ONNX | FP16 | CPU, GPU |  | Linux, RISC-V |  |  |
-| [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
+| [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16, FP32 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
 
 ---
 
@@ -95,7 +95,7 @@ NVIDIA TensorRT is an SDK for high-performance deep learning inference. This SDK
 
 ## 2.3. MediaPipe
 
-[Official Website](https://google.github.io/mediapipe) | [GitHub](https://github.com/google/mediapipe)
+[Official Website](https://developers.google.com/mediapipe) | [GitHub](https://github.com/google/mediapipe)
 
 MediaPipe offers cross-platform, customizable ML solutions for live and streaming media.
 
@@ -117,7 +117,7 @@ TensorFlow Serving is a flexible, high-performance serving system for machine le
 
 ## 2.6. ONNX Runtime
 
-[Official Website](https://onnxruntime.ai/about.html) | [GitHub](https://github.com/microsoft/onnxruntime)
+[Official Website](https://onnxruntime.ai) | [GitHub](https://github.com/microsoft/onnxruntime)
 
 ONNX Runtime is an open source project that is designed to accelerate machine learning across a wide range of frameworks, operating systems, and hardware platforms. It enables acceleration of machine learning inferencing across all of your deployment targets using a single set of API. ONNX Runtime automatically parses through your model to identify optimization opportunities and provides access to the best hardware acceleration available.
 
@@ -131,7 +131,7 @@ LibTorch: C++ distributions of PyTorch.
 
 ## 2.8. NCNN
 
-[Official Website](https://ncnn.docsforge.com) | [GitHub](https://github.com/Tencent/ncnn)
+[GitHub](https://github.com/Tencent/ncnn)
 
 NCNN is a high-performance neural network inference computing framework optimized for mobile platforms. NCNN is deeply considerate about deployment and uses on mobile phones from the beginning of design. NCNN does not have third party dependencies. It is cross-platform, and runs faster than all known open source frameworks on mobile phone cpu. Developers can easily deploy deep learning algorithm models to the mobile platform by using efficient NCNN implementation, create intelligent APPs, and bring the artificial intelligence to your fingertips. NCNN is currently being used in many Tencent applications, such as QQ, QZone (QQ 空间), WeChat (微信), Pitu (天天 P 图) and so on.
 
