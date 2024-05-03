@@ -2,7 +2,7 @@
  * @Author: Yulv
  * @Email: yulvchi@qq.com
  * @Date: 2022-01-24 10:48:28
- * @LastEditTime: 2024-05-04 01:03:53
+ * @LastEditTime: 2024-05-04 01:28:53
  * @FilePath: \Model-Inference-Deployment\README.md
  * @Description: A curated list of awesome inference deployment framework of artificial intelligence models.
  * Repository: https://github.com/Yulv-git/Model-Inference-Deployment
@@ -10,7 +10,7 @@
 
 <h1><center> Model Inference Deployment </center></h1>
 
-A curated list of awesome inference deployment framework of artificial intelligence models.
+A curated list of awesome inference deployment framework of artificial intelligence (AI) models.
 
 | Framework | Main Developer | API | Framework / ONNX | Quantization | Processors / Accelerator | Hardware | OS | Application | Other Features |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,6 +30,7 @@ A curated list of awesome inference deployment framework of artificial intellige
 | [MegEngine Lite](https://megengine.org.cn/doc/stable/zh/user-guide/deployment/lite/index.html) | Megvii | Python, C, C++ | MegEngine | INT8 | CPU, GPU, FPGA, NPU |  | Linux, Windows, macOS, Android |  |  |
 | [OpenPPL](https://openppl.ai/home) | SenseTime | C++, Python, Lua | ONNX | FP16 | CPU, GPU |  | Linux, RISC-V |  |  |
 | [Bolt](https://huawei-noah.github.io/bolt) | Huawei | C, Java | TensorFlow, Caffe, ONNX | 1-BIT, INT8, FP16, FP32 | CPU, GPU |  | Linux, Windows, macOS, Andriod, iOS | 2012 Laboratory, CBG, HUAWEI Product Lines |  |
+| [ExecuTorch](https://pytorch.org/executorch/stable/index.html) | FaceBook/Meta | C++, Python | PyTorch, CoreML |  | CPU, NPU, DSP |  | iOS, Android |  |
 
 ---
 
@@ -53,6 +54,7 @@ A curated list of awesome inference deployment framework of artificial intellige
   - [2.14. MegEngine Lite](#214-megengine-lite)
   - [2.15. OpenPPL](#215-openppl)
   - [2.16. Bolt](#216-bolt)
+  - [2.17. ExecuTorch](#217-executorch)
 - [3. Practice](#3-practice)
   - [3.1. ONNX](#31-onnx)
     - [3.1.1. Export a model from PyTorch to ONNX and run it using ONNX RUNTIME](#311-export-a-model-from-pytorch-to-onnx-and-run-it-using-onnx-runtime)
@@ -65,7 +67,7 @@ A curated list of awesome inference deployment framework of artificial intellige
 
 ONNX (Open Neural Network Exchange) is an open format built to represent machine learning models. ONNX defines a common set of operators - the building blocks of machine learning and deep learning models - and a common file format to enable AI developers to use models with a variety of frameworks, tools, runtimes, and compilers.
 
-ONNX developed by Microsoft, Amazon, FaceBook, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, CoreML, Keras, libSVM, MATLAB, MindSpore, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, XGBoost, OpenVINO, TensorRT, ONNX MLIR, ONNX RUNTIME, MACE, NCNN, TVM, etc.
+ONNX developed by Microsoft, Amazon, FaceBook/Meta, IBM, etc. [ONNX supported tools](https://onnx.ai/supported-tools.html): Caffe, CoreML, Keras, libSVM, MATLAB, MindSpore, MXNet, PaddlePaddle, PyTorch, SciKit Learn, TensorFlow, XGBoost, OpenVINO, TensorRT, ONNX MLIR, ONNX RUNTIME, MACE, NCNN, TVM, etc.
 
 Eg:
 
@@ -183,6 +185,12 @@ OpenPPL is an open-source deep-learning inference platform based on self-develop
 
 Bolt is a light-weight library for deep learning. Bolt, as a universal deployment tool for all kinds of neural networks, aims to minimize the inference runtime as much as possible. Bolt has been widely deployed and used in many departments of HUAWEI company, such as 2012 Laboratory, CBG and HUAWEI Product Lines.
 
+## 2.17. ExecuTorch
+
+[Official Website](https://pytorch.org/executorch/stable/index.html) | [GitHub](https://github.com/pytorch/executorch)
+
+ExecuTorch is an end-to-end solution for enabling on-device inference capabilities across mobile and edge devices including wearables, embedded devices and microcontrollers. It is part of the PyTorch Edge ecosystem and enables efficient deployment of PyTorch models to edge devices.
+
 ---
 
 # 3. Practice
@@ -251,11 +259,6 @@ def Run_ONNX_in_ONNX_RUNTIME(onnx_dir, img_path, img_save_path):
 ```
 
 And see [PyTorch2ONNX_Run_in_ONNX_RUNTIME.py](./src/PyTorch2ONNX/PyTorch2ONNX_Run_in_ONNX_RUNTIME.py) for the full Python script.
-
----
-
-TODO
-- [ ] Add ExecuTorch
 
 ---
 
